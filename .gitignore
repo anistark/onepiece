@@ -1,0 +1,22 @@
+node_modules/
+dist/
+coverage/
+
+# Vite
+.vite/
+*.local
+
+# Logs
+*.log
+npm-debug.log*
+pnpm-debug.log*
+
+# Editor / OS
+.DS_Store
+.idea/
+.vscode/*
+!.vscode/extensions.json
+.claude
+
+# Internal planning notes (maintainer-only, not shared)
+plan/

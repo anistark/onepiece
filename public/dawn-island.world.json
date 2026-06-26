@@ -1,0 +1,122 @@
+{
+  "version": 1,
+  "meta": {
+    "title": "Dawn Island",
+    "description": "Dawn Island (East Blue) — Foosha Village on a procedural island in the open sea, built entirely from Runek. A One Piece fan homage. First pass: the village green, rolling downs out to a real coastline, Mt. Colubo inland, and ocean to the horizon. The harbor, the windmill, a dock and boats, and a finer coastal shoreline come next.",
+    "authors": [{ "name": "Kumar Anirudha", "url": "https://github.com/anistark" }],
+    "license": "CC-BY-4.0",
+    "source": {
+      "url": "https://github.com/anistark/onepiece",
+      "path": "public/dawn-island.world.json",
+      "branch": "main"
+    }
+  },
+  "unit": 1,
+  "gravity": [0, -9.81, 0],
+  "ground": 0,
+  "time": "09:00",
+  "avatar": "third",
+  "fonts": { "display": "/pixelspace.ttf", "body": "/pixelspace.ttf" },
+  "palette": {
+    "wood": "#8a5a34",
+    "wall": "#efe3c8",
+    "roof": "#c0492f",
+    "foliage": "#4f8a3c",
+    "ground": "#6f9e4a",
+    "sand": "#e6cf94",
+    "stone": "#b9b2a4",
+    "bark": "#6a4a30",
+    "metal": "#9a9a9a",
+    "fabric": "#c85a3a",
+    "waterDeep": "#1c6b86",
+    "waterShallow": "#57b4c6"
+  },
+  "fog": { "color": "#bcd6e6", "near": 80, "far": 1600 },
+  "nodes": [
+    { "type": "Sky", "props": { "sunPosition": [120, 60, 40] } },
+    { "type": "LightRig", "props": { "sunPosition": [120, 60, 40], "shadowRange": 50 } },
+    {
+      "type": "Clouds",
+      "props": { "position": [0, 70, 0], "count": 9, "area": [240, 240], "drift": 0.3, "seed": 5 }
+    },
+    {
+      "type": "Ocean",
+      "props": { "size": [4000, 4000], "sunPosition": [120, 60, 40] }
+    },
+
+    {
+      "type": "Terrain",
+      "props": {
+        "size": [3000, 3000],
+        "position": [0, 2, 0],
+        "relief": 18,
+        "resolution": 160,
+        "frequency": 0.01,
+        "flatRadius": 240,
+        "falloff": 0.82,
+        "seed": 21
+      }
+    },
+    {
+      "type": "Terrain",
+      "props": {
+        "size": [1100, 1100],
+        "position": [0, 2, 820],
+        "relief": 240,
+        "resolution": 120,
+        "frequency": 0.012,
+        "falloff": 0.6,
+        "seed": 37
+      }
+    },
+
+    {
+      "type": "Sign",
+      "props": { "children": "FOOSHA", "position": [0, 4.5, 17], "variant": "display", "size": 1.6, "glow": true }
+    },
+
+    { "type": "House", "props": { "position": [0, 2.02, 0], "size": [9, 8], "height": 3, "roofStyle": "gable", "seed": 2 } },
+    { "type": "House", "props": { "position": [-13, 2.02, -2], "size": [7, 7], "height": 3, "roofStyle": "gable", "seed": 3 } },
+    { "type": "House", "props": { "position": [13, 2.02, -1], "size": [8, 7], "height": 3, "roofStyle": "gable", "seed": 4 } },
+    { "type": "House", "props": { "position": [-9, 2.02, 11], "size": [6, 6], "height": 2.6, "roofStyle": "gable", "seed": 5 } },
+    { "type": "House", "props": { "position": [11, 2.02, 12], "size": [7, 6], "height": 2.8, "roofStyle": "gable", "seed": 6 } },
+
+    { "type": "Well", "props": { "position": [5, 2.02, 6], "radius": 1 } },
+    { "type": "Bench", "props": { "position": [2, 2.02, -4], "length": 2, "back": true, "rotation": [0, 3.141592653589793, 0] } },
+    { "type": "Bench", "props": { "position": [-2, 2.02, 8], "length": 2, "back": true } },
+    { "type": "Lamp", "props": { "position": [-4, 2.02, 3] } },
+    { "type": "Lamp", "props": { "position": [7, 2.02, -5] } },
+    { "type": "Campfire", "props": { "position": [8, 2.02, 9], "radius": 0.8, "seed": 19 } },
+
+    { "type": "Path", "props": { "position": [0, 2.02, -14], "length": 34, "width": 3, "seed": 6 } },
+    { "type": "Path", "props": { "position": [0, 2.02, 13], "length": 18, "width": 2.6, "seed": 7 } },
+    { "type": "Fence", "props": { "position": [-17, 2.02, 5], "length": 14, "rails": 3, "seed": 13 } },
+    { "type": "Fence", "props": { "position": [17, 2.02, 6], "length": 12, "rails": 3, "seed": 14 } },
+
+    { "type": "Crate", "props": { "position": [14, 2.02, 14], "size": 0.8, "seed": 17 } },
+    { "type": "Barrel", "props": { "position": [14.9, 2.02, 14.2], "radius": 0.45, "height": 1 } },
+    { "type": "Crate", "props": { "position": [-15, 2.02, -7], "size": 0.7, "seed": 18 } },
+
+    { "type": "Trees", "props": { "position": [-20, 2.02, -9], "seed": 4, "segmentLength": 0.9 } },
+    { "type": "Trees", "props": { "position": [21, 2.02, -10], "seed": 8 } },
+    { "type": "Trees", "props": { "position": [-22, 2.02, 16], "seed": 15, "segmentLength": 0.9 } },
+    { "type": "Trees", "props": { "position": [24, 2.02, 18], "seed": 16 } },
+    { "type": "Bush", "props": { "position": [16, 2.02, -7], "radius": 1.5, "seed": 23 } },
+    { "type": "Bush", "props": { "position": [-16, 2.02, -5], "radius": 1.3, "seed": 24 } },
+    { "type": "Flowers", "props": { "position": [-10, 2.02, 12], "area": [8, 5], "count": 50, "seed": 27 } },
+    { "type": "Flowers", "props": { "position": [9, 2.02, -9], "area": [7, 4], "count": 40, "seed": 28 } },
+    {
+      "type": "Grass",
+      "props": { "position": [0, 2.02, 22], "area": [70, 36], "count": 1800, "seed": 3 }
+    },
+
+    {
+      "type": "Birds",
+      "props": { "position": [0, 45, 0], "count": 9, "area": 50, "height": 6, "speed": 1, "seed": 1 }
+    },
+    {
+      "type": "Player",
+      "props": { "position": [0, 6, 20], "yaw": 3.141592653589793 }
+    }
+  ]
+}

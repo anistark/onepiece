@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "meta": {
+    "title": "Shakedown Isle",
+    "description": "Phase 0 pipeline shakedown: a small coastal isle built entirely from existing Runek components. True open-sea islands (with a real coastline) arrive with the Ocean component in Phase 1, starting with Foosha Village.",
+    "authors": [{ "name": "Kumar Anirudha", "url": "https://github.com/anistark" }],
+    "license": "CC-BY-4.0",
+    "source": {
+      "url": "https://github.com/anistark/onepiece",
+      "path": "public/starter.world.json",
+      "branch": "main"
+    }
+  },
+  "unit": 1,
+  "gravity": [0, -9.81, 0],
+  "ground": 0,
+  "time": "10:00",
+  "avatar": "third",
+  "palette": {
+    "wood": "#8a5a34",
+    "wall": "#e8dcc0",
+    "roof": "#b8542f",
+    "foliage": "#4e8a3a",
+    "sand": "#e3c98f",
+    "waterDeep": "#1f6f8c",
+    "waterShallow": "#5fb8c9"
+  },
+  "fog": { "color": "#cfe3ee", "near": 30, "far": 130 },
+  "nodes": [
+    { "type": "Sky", "props": { "sunPosition": [50, 30, 25] } },
+    { "type": "LightRig", "props": { "sunPosition": [50, 30, 25], "shadowRange": 38 } },
+    {
+      "type": "Clouds",
+      "props": { "position": [0, 34, 0], "count": 7, "area": [120, 120], "drift": 0.35, "seed": 5 }
+    },
+    {
+      "type": "Terrain",
+      "props": { "size": [80, 80], "relief": 2.5, "flatRadius": 20, "resolution": 72, "seed": 7 }
+    },
+    {
+      "type": "Lake",
+      "props": { "position": [0, -0.4, 0], "size": [260, 260], "sunPosition": [50, 30, 25] }
+    },
+    { "type": "Shore", "props": { "position": [0, 0.05, 38], "size": [80, 12] } },
+
+    { "type": "House", "props": { "position": [0, 0.02, 0], "size": [8, 8], "height": 3 } },
+    {
+      "type": "Path",
+      "props": { "position": [0, 0.02, 20], "length": 30, "width": 2.4, "seed": 6 }
+    },
+    {
+      "type": "Fence",
+      "props": { "position": [-6, 0.02, -6], "length": 10, "rails": 3, "seed": 13 }
+    },
+    { "type": "Well", "props": { "position": [7, 0.02, -4], "radius": 1 } },
+    {
+      "type": "Bench",
+      "props": { "position": [4, 0.02, 6], "length": 2, "back": true, "rotation": [0, 3.141592653589793, 0] }
+    },
+    { "type": "Crate", "props": { "position": [9, 0.02, 9], "size": 0.8, "seed": 17 } },
+    { "type": "Barrel", "props": { "position": [9.9, 0.02, 9.2], "radius": 0.45, "height": 1 } },
+    { "type": "Campfire", "props": { "position": [6, 0.02, 24], "radius": 0.8, "seed": 19 } },
+
+    {
+      "type": "Trees",
+      "props": { "position": [-12, 0.02, -8], "seed": 4, "segmentLength": 0.8 }
+    },
+    { "type": "Trees", "props": { "position": [14, 0.02, -10], "seed": 8 } },
+    {
+      "type": "Trees",
+      "props": { "position": [-15, 0.02, 9], "seed": 15, "segmentLength": 0.9 }
+    },
+    { "type": "Bush", "props": { "position": [11, 0.02, 4], "radius": 1.2, "seed": 23 } },
+    {
+      "type": "Grass",
+      "props": { "position": [0, 0.02, 18], "area": [50, 16], "count": 1000, "seed": 3 }
+    },
+    {
+      "type": "Flowers",
+      "props": { "position": [-7, 0.02, 8], "area": [6, 4], "count": 40, "seed": 27 }
+    },
+    {
+      "type": "Rocks",
+      "props": { "position": [16, 0.02, 30], "count": 6, "spread": 3.5, "seed": 11 }
+    },
+    {
+      "type": "Rocks",
+      "props": { "position": [-18, 0.02, 32], "count": 5, "spread": 2.5, "size": 0.8, "seed": 22 }
+    },
+    {
+      "type": "Birds",
+      "props": { "position": [0, 15, 0], "count": 7, "area": 18, "height": 3, "speed": 1, "seed": 1 }
+    },
+    {
+      "type": "Player",
+      "props": { "position": [0, 3, 16], "yaw": 3.141592653589793 }
+    }
+  ]
+}
