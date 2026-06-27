@@ -16,8 +16,10 @@ import { Chair } from './runek/Chair'
 import { Clock } from './runek/Clock'
 import { Clouds } from './runek/Clouds'
 import { Crate } from './runek/Crate'
+import { Dock } from './runek/Dock'
 import { Door } from './runek/Door'
 import { Fence } from './runek/Fence'
+import { Flag } from './runek/Flag'
 import { Floor } from './runek/Floor'
 import { Flowers } from './runek/Flowers'
 import { Fountain } from './runek/Fountain'
@@ -36,6 +38,7 @@ import { Rocks } from './runek/Rocks'
 import { Roof } from './runek/Roof'
 import { Room } from './runek/Room'
 import { Rug } from './runek/Rug'
+import { Sailboat } from './runek/Sailboat'
 import { Shelf } from './runek/Shelf'
 import { Shore } from './runek/Shore'
 import { Sign } from './runek/Sign'
@@ -46,6 +49,7 @@ import { Terrain } from './runek/Terrain'
 import { Trees } from './runek/Trees'
 import { Wall } from './runek/Wall'
 import { Well } from './runek/Well'
+import { Windmill } from './runek/Windmill'
 import { Window } from './runek/Window'
 
 export const registry: ComponentRegistry = {
@@ -62,8 +66,10 @@ export const registry: ComponentRegistry = {
   Clock,
   Clouds,
   Crate,
+  Dock,
   Door,
   Fence,
+  Flag,
   Floor,
   Flowers,
   Fountain,
@@ -82,6 +88,7 @@ export const registry: ComponentRegistry = {
   Roof,
   Room,
   Rug,
+  Sailboat,
   Shelf,
   Shore,
   Sign,
@@ -92,5 +99,6 @@ export const registry: ComponentRegistry = {
   Trees,
   Wall,
   Well,
+  Windmill,
   Window,
 }

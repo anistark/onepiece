@@ -3,7 +3,7 @@
 
 # Every renderable component pulled from the Runek registry. `@runek/core` is an
 # npm dependency (package.json), not vendored — components import it directly.
-components := "player terrain room house wall floor roof door window staircase table chair clock sign lamp rug shelf bookshelf lake ocean shore fountain rocks sky clouds grass trees bush flowers hedge lightrig fence bridge arch pillar well path bench bed crate barrel plant campfire birds"
+components := "player terrain room house wall floor roof door window staircase table chair clock sign lamp rug shelf bookshelf lake ocean shore sailboat fountain rocks sky clouds grass trees bush flowers hedge lightrig fence flag bridge dock arch pillar well windmill path bench bed crate barrel plant campfire birds"
 
 # List available recipes
 default:
