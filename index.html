@@ -9,6 +9,23 @@
     />
     <link rel="icon" type="image/png" href="/onepiece.png" />
     <title>One Piece — a procedural sea of islands</title>
+
+    <!-- Google tag (gtag.js) — loaded only on the deployed site, never on localhost/dev -->
+    <script>
+      (function () {
+        var h = location.hostname
+        if (h === 'localhost' || h === '127.0.0.1' || h === '[::1]' || h.endsWith('.local')) return
+        window.dataLayer = window.dataLayer || []
+        function gtag() { dataLayer.push(arguments) }
+        window.gtag = gtag
+        gtag('js', new Date())
+        gtag('config', 'G-W5LENHY4J0')
+        var s = document.createElement('script')
+        s.async = true
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-W5LENHY4J0'
+        document.head.appendChild(s)
+      })()
+    </script>
   </head>
   <body>
     <div id="root"></div>
