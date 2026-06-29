@@ -51,6 +51,9 @@ import { Wall } from './runek/Wall'
 import { Well } from './runek/Well'
 import { Windmill } from './runek/Windmill'
 import { Window } from './runek/Window'
+// App-owned traversal components (not vendored): the steerable boat + travel gates.
+import { Helm } from './voyage/Helm'
+import { Portal } from './voyage/Portal'
 
 export const registry: ComponentRegistry = {
   Arch,
@@ -75,6 +78,7 @@ export const registry: ComponentRegistry = {
   Fountain,
   Grass,
   Hedge,
+  Helm,
   House,
   Lake,
   Lamp,
@@ -84,6 +88,7 @@ export const registry: ComponentRegistry = {
   Pillar,
   Plant,
   Player,
+  Portal,
   Rocks,
   Roof,
   Room,

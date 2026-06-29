@@ -206,3 +206,18 @@ body,
   fill: currentColor;
   display: block;
 }
+
+/* Set-sail / arrival fade: a black curtain drawn over the world swap. */
+.voyage-fade {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: #05080c;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.45s ease;
+}
+
+.voyage-fade.on {
+  opacity: 1;
+}

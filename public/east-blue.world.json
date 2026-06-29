@@ -1,0 +1,76 @@
+{
+  "version": 1,
+  "meta": {
+    "title": "East Blue",
+    "description": "The open East Blue — a procedural sea to the horizon, built entirely from Runek. A One Piece fan homage. Take the helm of a small sailboat (WASD/arrows to steer) and make for the glowing gate on the water to land at Foosha Village on Dawn Island.",
+    "authors": [{ "name": "Kumar Anirudha", "url": "https://github.com/anistark" }],
+    "license": "CC-BY-4.0",
+    "source": {
+      "url": "https://github.com/anistark/onepiece",
+      "path": "public/east-blue.world.json",
+      "branch": "main"
+    }
+  },
+  "unit": 1,
+  "gravity": [0, -9.81, 0],
+  "ground": 0,
+  "time": "10:00",
+  "avatar": "third",
+  "fonts": { "display": "/pixelspace.ttf", "body": "/pixelspace.ttf" },
+  "palette": {
+    "wood": "#8a5a34",
+    "wall": "#efe3c8",
+    "roof": "#c0492f",
+    "foliage": "#4f8a3c",
+    "ground": "#6f9e4a",
+    "sand": "#e6cf94",
+    "stone": "#b9b2a4",
+    "bark": "#6a4a30",
+    "metal": "#9a9a9a",
+    "fabric": "#c85a3a",
+    "waterDeep": "#1c6b86",
+    "waterShallow": "#57b4c6"
+  },
+  "fog": { "color": "#bcd6e6", "near": 60, "far": 1100 },
+  "nodes": [
+    { "type": "Sky", "props": { "sunPosition": [120, 60, 40] } },
+    { "type": "LightRig", "props": { "sunPosition": [120, 60, 40], "shadowRange": 40 } },
+    {
+      "type": "Clouds",
+      "props": { "position": [0, 80, 0], "count": 8, "area": [300, 300], "drift": 0.3, "seed": 6 }
+    },
+    {
+      "type": "Ocean",
+      "props": { "size": [4000, 4000], "sunPosition": [120, 60, 40] }
+    },
+
+    {
+      "type": "Terrain",
+      "props": {
+        "size": [400, 400],
+        "position": [0, 1, 360],
+        "relief": 60,
+        "resolution": 90,
+        "frequency": 0.02,
+        "flatRadius": 25,
+        "falloff": 0.82,
+        "collider": false,
+        "seed": 21
+      }
+    },
+
+    {
+      "type": "Birds",
+      "props": { "position": [0, 40, 30], "count": 7, "area": 60, "height": 6, "speed": 1, "seed": 2 }
+    },
+
+    {
+      "type": "Helm",
+      "props": { "position": [0, 0, 0], "rotation": [0, 0, 0], "speed": 14, "length": 6, "sail": true }
+    },
+    {
+      "type": "Portal",
+      "props": { "to": "/dawn-island.world.json", "label": "Foosha", "position": [0, 0, 72], "radius": 3, "color": "#ffd86b" }
+    }
+  ]
+}
