@@ -3,10 +3,12 @@ import { registry } from './registry'
 import { Footer } from './Footer'
 import { InfoPanel } from './InfoPanel'
 import { islandInfo } from './islandInfo'
-import { clearVoyage, getVoyage, subscribeVoyage } from './voyage/store'
+import { clearPrompt, clearVoyage, getPrompt, getVoyage, requestVoyage, subscribe } from './voyage/store'
 import { parseWorld, type WorldData, WorldEditor, WorldRenderer } from '@runek/core'
 
 const START_WORLD = '/dawn-island.world.json'
+// Worlds where the player is at the helm (sail controls), not on foot.
+const SEA_WORLDS = new Set(['/east-blue.world.json'])
 // How long the screen stays black between worlds (matches the .voyage-fade CSS transition).
 const FADE_MS = 450
 
@@ -17,10 +19,17 @@ export function App() {
   const [showInfo, setShowInfo] = useState(false)
   const [fading, setFading] = useState(false)
   const info = islandInfo[worldFile]
+  const sailMode = SEA_WORLDS.has(worldFile)
 
-  // A Portal inside the world (a separate React root, past the Canvas) asks to travel via the
-  // voyage store; the app shell hears it here and swaps the mounted world JSON behind a fade.
-  const pending = useSyncExternalStore(subscribeVoyage, getVoyage)
+  // An in-world `TravelZone` (a separate React root, past the Canvas) publishes the pending voyage
+  // and the contextual action prompt through the voyage store; the app shell reads them here.
+  const pending = useSyncExternalStore(subscribe, getVoyage)
+  const prompt = useSyncExternalStore(subscribe, getPrompt)
+
+  // On foot you act near a boat ('board'); at the helm you act at a port ('ashore').
+  const actionable =
+    prompt != null && (sailMode ? prompt.kind === 'ashore' : prompt.kind === 'board')
+  const canAct = actionable && !editing && !showInfo && !fading
 
   useEffect(() => {
     if (!pending) return
@@ -32,6 +41,7 @@ export function App() {
     const timer = setTimeout(() => {
       setEditing(false)
       setShowInfo(false)
+      clearPrompt() // drop any stale action from the world we're leaving
       setWorldFile(pending) // triggers the load effect below; fade clears once it lands
       clearVoyage()
     }, FADE_MS)
@@ -54,7 +64,20 @@ export function App() {
     }
   }, [worldFile])
 
+  // Press E to take the current action (board / go ashore), mirroring the on-screen button.
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.code === 'KeyE' && canAct && prompt) requestVoyage(prompt.to)
+    }
+    window.addEventListener('keydown', onKey)
+    return () => window.removeEventListener('keydown', onKey)
+  }, [canAct, prompt])
+
   if (!world) return null
+
+  const act = () => {
+    if (canAct && prompt) requestVoyage(prompt.to)
+  }
 
   return (
     <>
@@ -76,15 +99,27 @@ export function App() {
         {editing ? '▶ Walk' : '✎ Edit'}
       </button>
 
+      {/* Contextual action: board a boat on foot; at the helm, go ashore (enabled only at a port). */}
+      {!editing && !showInfo && !fading && !sailMode && prompt?.kind === 'board' && (
+        <button type="button" className="action-prompt" onClick={act}>
+          ⛵ {prompt.label} <kbd>E</kbd>
+        </button>
+      )}
+      {!editing && !showInfo && !fading && sailMode && (
+        <button type="button" className="action-prompt" onClick={act} disabled={!canAct}>
+          ⚓ Go ashore <kbd>E</kbd>
+        </button>
+      )}
+
       {!editing && !showInfo && (
         <p className="hint">
-          {worldFile === '/east-blue.world.json' ? (
+          {sailMode ? (
             <>
-              <b>WASD</b> / arrows to steer · sail through the <b>gate</b> to land
+              <b>WASD</b> / arrows to steer · sail to a port and <b>go ashore</b>
             </>
           ) : (
             <>
-              <b>WASD</b> / arrows move · <b>Shift</b> run · <b>Space</b> jump · <b>drag</b> to look
+              <b>WASD</b> / arrows move · <b>Shift</b> run · <b>Space</b> jump · board a boat to set sail
             </>
           )}
         </p>

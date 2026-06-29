@@ -42,6 +42,7 @@ import { Sailboat } from './runek/Sailboat'
 import { Shelf } from './runek/Shelf'
 import { Shore } from './runek/Shore'
 import { Sign } from './runek/Sign'
+import { Signpost } from './runek/Signpost'
 import { Sky } from './runek/Sky'
 import { Staircase } from './runek/Staircase'
 import { Table } from './runek/Table'
@@ -51,9 +52,11 @@ import { Wall } from './runek/Wall'
 import { Well } from './runek/Well'
 import { Windmill } from './runek/Windmill'
 import { Window } from './runek/Window'
-// App-owned traversal components (not vendored): the steerable boat + travel gates.
+// App-owned traversal glue (not vendored): the steerable boat and the port travel zones.
+// One Piece travels by boarding boats and landing at ports — no portals. (The Signpost and
+// Sailboat are generic Runek components, vendored above.)
 import { Helm } from './voyage/Helm'
-import { Portal } from './voyage/Portal'
+import { TravelZone } from './voyage/TravelZone'
 
 export const registry: ComponentRegistry = {
   Arch,
@@ -88,7 +91,6 @@ export const registry: ComponentRegistry = {
   Pillar,
   Plant,
   Player,
-  Portal,
   Rocks,
   Roof,
   Room,
@@ -97,10 +99,12 @@ export const registry: ComponentRegistry = {
   Shelf,
   Shore,
   Sign,
+  Signpost,
   Sky,
   Staircase,
   Table,
   Terrain,
+  TravelZone,
   Trees,
   Wall,
   Well,

@@ -39,7 +39,7 @@ export const islandInfo: Record<string, IslandInfo> = {
   '/east-blue.world.json': {
     title: 'East Blue',
     subtitle: 'The open sea · take the helm',
-    description: `Open water to the horizon. Take the helm of a small sailboat — steer with WASD or the arrow keys — and make for the glowing gate on the water. Beyond it lies Dawn Island and the red roofs of Foosha Village. The swell rolls, gulls wheel overhead, and the far sea melts into the sky.`,
+    description: `Open water to the horizon. Take the helm of a small sailboat — steer with WASD or the arrow keys — and make for the port at Foosha, on Dawn Island, where the red roofs wait beyond the dock. Bring the boat alongside and go ashore. The swell rolls, gulls wheel overhead, and the far sea melts into the sky.`,
     significance: [
       `The East Blue is the sea where it all begins: Monkey D. Luffy sets out from here, and one by one gathers the first of his crew — Zoro, Nami, Usopp, and Sanji — before the Grand Line.`,
       `Called "the weakest sea," it is the calmest and least dangerous of the four blues, yet it produced an outsized share of the era's great pirates.`,
@@ -47,7 +47,7 @@ export const islandInfo: Record<string, IslandInfo> = {
     funFacts: [
       `Despite its gentle reputation, the East Blue is the birthplace of much of the Straw Hat crew and several legendary figures.`,
       `Each of the four seas — East, West, North, South Blue — is separated from the others by the Red Line and the Grand Line that cross at its center.`,
-      `Sailing here is "discrete": each island is its own world file, and a gate stitches them together — the project's traversal layer made visible.`,
+      `Sailing here is "discrete": each island is its own world file, and the ports stitch them together — board a boat at one, go ashore at the next.`,
     ],
     contributors: [{ name: 'anistark', url: 'https://github.com/anistark' }],
     license: 'World content CC BY 4.0 · code MIT',

@@ -221,3 +221,57 @@ body,
 .voyage-fade.on {
   opacity: 1;
 }
+
+/* Contextual action (set sail / go ashore), bottom-center above the hint. */
+.action-prompt {
+  position: fixed;
+  bottom: 5.25rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 12;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.1rem;
+  border: none;
+  border-radius: 999px;
+  background: #2f9fb8;
+  color: #fff;
+  font:
+    600 0.95rem system-ui,
+    sans-serif;
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  animation: action-rise 0.18s ease-out;
+}
+
+.action-prompt:hover:not(:disabled) {
+  background: #38b2cc;
+}
+
+.action-prompt:disabled {
+  background: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.6);
+  cursor: default;
+  box-shadow: none;
+}
+
+.action-prompt kbd {
+  padding: 0.05rem 0.4rem;
+  border-radius: 5px;
+  background: rgba(0, 0, 0, 0.28);
+  font:
+    600 0.72rem ui-monospace,
+    monospace;
+}
+
+@keyframes action-rise {
+  from {
+    opacity: 0;
+    transform: translate(-50%, 0.4rem);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
