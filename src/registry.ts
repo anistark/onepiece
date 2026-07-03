@@ -13,8 +13,10 @@ import { Bridge } from './runek/Bridge'
 import { Bush } from './runek/Bush'
 import { Campfire } from './runek/Campfire'
 import { Chair } from './runek/Chair'
+import { Cliff } from './runek/Cliff'
 import { Clock } from './runek/Clock'
 import { Clouds } from './runek/Clouds'
+import { Counter } from './runek/Counter'
 import { Crate } from './runek/Crate'
 import { Dock } from './runek/Dock'
 import { Door } from './runek/Door'
@@ -26,6 +28,7 @@ import { Fountain } from './runek/Fountain'
 import { Grass } from './runek/Grass'
 import { Hedge } from './runek/Hedge'
 import { House } from './runek/House'
+import { Hut } from './runek/Hut'
 import { Lake } from './runek/Lake'
 import { Lamp } from './runek/Lamp'
 import { LightRig } from './runek/LightRig'
@@ -34,6 +37,7 @@ import { Path } from './runek/Path'
 import { Pillar } from './runek/Pillar'
 import { Plant } from './runek/Plant'
 import { Player } from './runek/Player'
+import { Road } from './runek/Road'
 import { Rocks } from './runek/Rocks'
 import { Roof } from './runek/Roof'
 import { Room } from './runek/Room'
@@ -45,7 +49,9 @@ import { Sign } from './runek/Sign'
 import { Signpost } from './runek/Signpost'
 import { Sky } from './runek/Sky'
 import { Staircase } from './runek/Staircase'
+import { Stool } from './runek/Stool'
 import { Table } from './runek/Table'
+import { Tent } from './runek/Tent'
 import { Terrain } from './runek/Terrain'
 import { Trees } from './runek/Trees'
 import { Wall } from './runek/Wall'
@@ -57,6 +63,8 @@ import { Window } from './runek/Window'
 // Sailboat are generic Runek components, vendored above.)
 import { Helm } from './voyage/Helm'
 import { TravelZone } from './voyage/TravelZone'
+// App-owned avatar visual (not vendored): the straw-hat silhouette stays in this repo.
+import { StrawHatFigure } from './StrawHatFigure'
 
 export const registry: ComponentRegistry = {
   Arch,
@@ -69,8 +77,10 @@ export const registry: ComponentRegistry = {
   Bush,
   Campfire,
   Chair,
+  Cliff,
   Clock,
   Clouds,
+  Counter,
   Crate,
   Dock,
   Door,
@@ -83,6 +93,7 @@ export const registry: ComponentRegistry = {
   Hedge,
   Helm,
   House,
+  Hut,
   Lake,
   Lamp,
   LightRig,
@@ -91,6 +102,7 @@ export const registry: ComponentRegistry = {
   Pillar,
   Plant,
   Player,
+  Road,
   Rocks,
   Roof,
   Room,
@@ -102,7 +114,10 @@ export const registry: ComponentRegistry = {
   Signpost,
   Sky,
   Staircase,
+  Stool,
+  StrawHatFigure,
   Table,
+  Tent,
   Terrain,
   TravelZone,
   Trees,
