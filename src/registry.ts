@@ -16,6 +16,7 @@ import { Chair } from './runek/Chair'
 import { Cliff } from './runek/Cliff'
 import { Clock } from './runek/Clock'
 import { Clouds } from './runek/Clouds'
+import { Compass } from './runek/Compass'
 import { Counter } from './runek/Counter'
 import { Crate } from './runek/Crate'
 import { Dock } from './runek/Dock'
@@ -80,6 +81,7 @@ export const registry: ComponentRegistry = {
   Cliff,
   Clock,
   Clouds,
+  Compass,
   Counter,
   Crate,
   Dock,

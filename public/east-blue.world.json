@@ -48,7 +48,7 @@
       "type": "Terrain",
       "props": {
         "size": [400, 400],
-        "position": [0, 1, 360],
+        "position": [0, 1, -360],
         "relief": 60,
         "resolution": 90,
         "frequency": 0.02,
@@ -61,24 +61,24 @@
 
     {
       "type": "Birds",
-      "props": { "position": [0, 40, 30], "count": 7, "area": 60, "height": 6, "speed": 1, "seed": 2 }
+      "props": { "position": [0, 40, -30], "count": 7, "area": 60, "height": 6, "speed": 1, "seed": 2 }
     },
 
     {
       "type": "Helm",
-      "props": { "position": [0, 0, 0], "rotation": [0, 0, 0], "speed": 14, "length": 6, "sail": true }
+      "props": { "position": [0, 0, 0], "rotation": [0, 3.141592653589793, 0], "speed": 14, "length": 6, "sail": true }
     },
     {
       "type": "Signpost",
-      "props": { "name": "FOOSHA", "position": [4, 1, 156], "rotation": [0, 3.141592653589793, 0], "height": 3, "width": 3.8, "size": 0.6 }
+      "props": { "name": "FOOSHA", "position": [-4, 1, -156], "rotation": [0, 0, 0], "height": 3, "width": 3.8, "size": 0.6 }
     },
     {
       "type": "Dock",
-      "props": { "position": [-7, 1, 162], "rotation": [0, 3.141592653589793, 0], "length": 16, "width": 3.4, "depth": 6, "seed": 8 }
+      "props": { "position": [7, 1, -162], "rotation": [0, 0, 0], "length": 16, "width": 3.4, "depth": 6, "seed": 8 }
     },
     {
       "type": "TravelZone",
-      "props": { "to": "/dawn-island.world.json", "label": "Go ashore", "kind": "ashore", "position": [0, 0, 150], "size": [22, 6, 22] }
+      "props": { "to": "/dawn-island.world.json", "label": "Go ashore", "kind": "ashore", "position": [0, 0, -150], "size": [22, 6, 22] }
     }
   ]
 }

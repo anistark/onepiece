@@ -1,16 +1,25 @@
-import { useEffect, useState, useSyncExternalStore } from 'react'
+import { useEffect, useMemo, useState, useSyncExternalStore } from 'react'
 import { registry } from './registry'
 import { Footer } from './Footer'
 import { InfoPanel } from './InfoPanel'
 import { islandInfo } from './islandInfo'
 import { clearPrompt, clearVoyage, getPrompt, getVoyage, requestVoyage, subscribe } from './voyage/store'
-import { parseWorld, type WorldData, WorldEditor, WorldRenderer } from '@runek/core'
+import { parseWorld, type WorldData, type WorldNode, WorldEditor, WorldRenderer } from '@runek/core'
 
 const START_WORLD = '/dawn-island.world.json'
 // Worlds where the player is at the helm (sail controls), not on foot.
 const SEA_WORLDS = new Set(['/east-blue.world.json'])
 // How long the screen stays black between worlds (matches the .voyage-fade CSS transition).
 const FADE_MS = 450
+// The ship's compass HUD (vendored Runek component), injected into every rendered world —
+// never into the world data itself, so the editor and serialized JSON stay clean, and the
+// dial vanishes in edit mode (the editor renders the un-injected data). North defaults to +Z,
+// matching how the islands are authored (decisions #10).
+const COMPASS: WorldNode = {
+  type: 'Compass',
+  id: '__compass',
+  props: { corner: 'bottom-left', inset: [16, 48] },
+}
 
 export function App() {
   const [worldFile, setWorldFile] = useState(START_WORLD)
@@ -73,7 +82,12 @@ export function App() {
     return () => window.removeEventListener('keydown', onKey)
   }, [canAct, prompt])
 
-  if (!world) return null
+  const renderWorld = useMemo<WorldData | null>(
+    () => world && { ...world, nodes: [...world.nodes, COMPASS] },
+    [world],
+  )
+
+  if (!world || !renderWorld) return null
 
   const act = () => {
     if (canAct && prompt) requestVoyage(prompt.to)
@@ -85,7 +99,7 @@ export function App() {
       {editing ? (
         <WorldEditor key={worldFile} data={world} registry={registry} onChange={setWorld} lights={false} />
       ) : (
-        <WorldRenderer key={worldFile} data={world} registry={registry} lights={false} />
+        <WorldRenderer key={worldFile} data={renderWorld} registry={registry} lights={false} />
       )}
 
       {info && !editing && !showInfo && (
