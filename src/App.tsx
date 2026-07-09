@@ -9,6 +9,21 @@ import { parseWorld, type WorldData, type WorldNode, WorldEditor, WorldRenderer 
 const START_WORLD = '/dawn-island.world.json'
 // Worlds where the player is at the helm (sail controls), not on foot.
 const SEA_WORLDS = new Set(['/east-blue.world.json'])
+// Keyboard map (overrides runek's default): WASD is the only movement binding — the arrow
+// keys are freed from their redundant duplicate and repurposed to turn the camera. `turnLeft`/
+// `turnRight` are consumed by the on-foot Player (see runek/Player.tsx); Helm steers on WASD.
+const KEYBOARD_MAP = [
+  { name: 'forward', keys: ['KeyW'] },
+  { name: 'backward', keys: ['KeyS'] },
+  { name: 'leftward', keys: ['KeyA'] },
+  { name: 'rightward', keys: ['KeyD'] },
+  { name: 'jump', keys: ['Space'] },
+  { name: 'run', keys: ['ShiftLeft', 'ShiftRight'] },
+  { name: 'turnLeft', keys: ['ArrowLeft'] },
+  { name: 'turnRight', keys: ['ArrowRight'] },
+  { name: 'lookUp', keys: ['ArrowUp'] },
+  { name: 'lookDown', keys: ['ArrowDown'] },
+]
 // How long the screen stays black between worlds (matches the .voyage-fade CSS transition).
 const FADE_MS = 450
 // The ship's compass HUD (vendored Runek component), injected into every rendered world —
@@ -99,7 +114,13 @@ export function App() {
       {editing ? (
         <WorldEditor key={worldFile} data={world} registry={registry} onChange={setWorld} lights={false} />
       ) : (
-        <WorldRenderer key={worldFile} data={renderWorld} registry={registry} lights={false} />
+        <WorldRenderer
+          key={worldFile}
+          data={renderWorld}
+          registry={registry}
+          keyboardMap={KEYBOARD_MAP}
+          lights={false}
+        />
       )}
 
       {info && !editing && !showInfo && (
@@ -129,11 +150,11 @@ export function App() {
         <p className="hint">
           {sailMode ? (
             <>
-              <b>WASD</b> / arrows to steer · sail to a port and <b>go ashore</b>
+              <b>WASD</b> to steer · sail to a port and <b>go ashore</b>
             </>
           ) : (
             <>
-              <b>WASD</b> / arrows move · <b>Shift</b> run · <b>Space</b> jump · board a boat to set sail
+              <b>WASD</b> move · <b>←→</b> turn · <b>↑↓</b> look · <b>Shift</b> run · <b>Space</b> jump · board a boat
             </>
           )}
         </p>
