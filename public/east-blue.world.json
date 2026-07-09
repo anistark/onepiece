@@ -2,7 +2,7 @@
   "version": 1,
   "meta": {
     "title": "East Blue",
-    "description": "The open East Blue — a procedural sea to the horizon, built entirely from Runek. A One Piece fan homage. Take the helm of a small sailboat (WASD/arrows to steer) and make for the port at Foosha Village on Dawn Island, then bring the boat alongside and go ashore.",
+    "description": "The open East Blue — a procedural sea to the horizon, built entirely from Runek. A One Piece fan homage. Take the helm of a small sailboat (WASD/arrows to steer): south lies the port at Foosha Village on Dawn Island, north the anchorage under the grinning crag of Skull Island. Bring the boat alongside a port and go ashore.",
     "authors": [{ "name": "Kumar Anirudha", "url": "https://github.com/anistark" }],
     "license": "CC-BY-4.0",
     "source": {
@@ -79,6 +79,34 @@
     {
       "type": "TravelZone",
       "props": { "to": "/dawn-island.world.json", "label": "Go ashore", "kind": "ashore", "position": [0, 0, -150], "size": [22, 6, 22] }
+    },
+
+    {
+      "type": "Terrain",
+      "props": {
+        "size": [420, 420],
+        "position": [0, 1, 400],
+        "relief": 80,
+        "resolution": 90,
+        "frequency": 0.008,
+        "falloff": 0.7,
+        "collider": false,
+        "color": "#a9a189",
+        "seed": 44
+      }
+    },
+    { "type": "SkullRock", "props": { "position": [26, -2, 225], "rotation": [0, 3.141592653589793, 0], "size": 9, "boneColor": "#c8bfa6", "cavityColor": "#141210", "seed": 5 } },
+    {
+      "type": "Signpost",
+      "props": { "name": "SKULL ISLAND", "position": [-4, 1, 156], "rotation": [0, 3.1415927, 0], "height": 3, "width": 7.4, "size": 0.55 }
+    },
+    {
+      "type": "Dock",
+      "props": { "position": [7, 1, 162], "rotation": [0, 3.141592653589793, 0], "length": 16, "width": 3.4, "depth": 6, "seed": 9 }
+    },
+    {
+      "type": "TravelZone",
+      "props": { "to": "/skull-island.world.json", "label": "Go ashore", "kind": "ashore", "position": [0, 0, 150], "size": [22, 6, 22] }
     }
   ]
 }

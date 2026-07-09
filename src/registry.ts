@@ -66,6 +66,11 @@ import { Helm } from './voyage/Helm'
 import { TravelZone } from './voyage/TravelZone'
 // App-owned avatar visual (not vendored): the straw-hat silhouette stays in this repo.
 import { StrawHatFigure } from './StrawHatFigure'
+// App-owned world set pieces (not vendored): the skull-island landmark stays here (its
+// identity is this app's, not a generic primitive); the Torch is an upstream candidate
+// once its design settles.
+import { SkullRock } from './SkullRock'
+import { Torch } from './Torch'
 
 export const registry: ComponentRegistry = {
   Arch,
@@ -114,12 +119,14 @@ export const registry: ComponentRegistry = {
   Shore,
   Sign,
   Signpost,
+  SkullRock,
   Sky,
   Staircase,
   Stool,
   StrawHatFigure,
   Table,
   Tent,
+  Torch,
   Terrain,
   TravelZone,
   Trees,

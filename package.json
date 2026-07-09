@@ -1,6 +1,6 @@
 {
   "name": "onepiece",
-  "version": "0.3.0",
+  "version": "0.4.0",
   "private": true,
   "description": "A walkable, sailable procedural world inspired by One Piece, built from Runek components. A fan homage, not affiliated with or endorsed by the rights holders.",
   "license": "MIT",
