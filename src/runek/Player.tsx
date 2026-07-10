@@ -9,10 +9,12 @@ export type PlayerView = AvatarView
 
 // Keyboard look. ecctrl only moves its camera from mouse/touch/gamepad — there are no key
 // actions for it — so we drive its camera rig ourselves from the `turnLeft`/`turnRight` and
-// `lookUp`/`lookDown` map entries (App-side keyboard map). Yaw is the pivot's `rotation.y`;
-// pitch is the follow-cam's `rotation.x` plus a matching reposition along a vertical arc, exactly
-// as ecctrl's own mouse handler does. ecctrl writes these only on pointer input (never per frame
-// in CameraBasedMovement), so our additions compose cleanly with mouse-drag.
+// `lookUp`/`lookDown` actions in the keyboard map (see `keyboardMap` in `@runek/core`). Yaw is
+// the pivot's `rotation.y`; pitch is the follow-cam's `rotation.x` plus a matching reposition
+// along a vertical arc, exactly as ecctrl's own mouse handler does. ecctrl writes these only on
+// pointer input (never per frame in CameraBasedMovement), so our additions compose cleanly with
+// mouse-drag. Third-person only: it drives the follow-cam orbit; a map without these actions
+// (or first-person, where there is no orbit) simply leaves the camera to mouse control.
 const TURN_SPEED = 1.8 // yaw, radians/second
 const LOOK_SPEED = 1.2 // pitch, radians/second
 // Pitch clamp — mirrors ecctrl's camLowLimit / camUpLimit defaults (we pass neither to Ecctrl).
