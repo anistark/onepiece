@@ -65,7 +65,7 @@ export function House({
         height={height}
         thickness={thickness}
         color={wallColor}
-        opening={{ width: DOOR_WIDTH, height: DOOR_HEIGHT }}
+        openings={[{ width: DOOR_WIDTH, height: DOOR_HEIGHT }]}
       />
       <Wall
         position={[-halfW, 0, 0]}
@@ -74,7 +74,7 @@ export function House({
         height={height}
         thickness={thickness}
         color={wallColor}
-        opening={windowOpening}
+        openings={[windowOpening]}
       />
       <Wall
         position={[halfW, 0, 0]}
@@ -83,7 +83,7 @@ export function House({
         height={height}
         thickness={thickness}
         color={wallColor}
-        opening={windowOpening}
+        openings={[windowOpening]}
       />
 
       <Door position={[0, 0, halfD]} width={DOOR_WIDTH} height={DOOR_HEIGHT} openAngle={-1.1} />

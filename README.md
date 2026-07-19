@@ -14,7 +14,7 @@ just install
 just dev      # → http://localhost:5173
 ```
 
-**WASD** / arrows move · **Shift** run · **Space** jump · **drag** to look.
+**WASD** move · **←→** turn · **↑↓** look · **Shift** run · **Space** jump · **drag** to look.
 The **✎ Edit** toggle switches to an orbit-camera editor: click a component to
 select it, move/rotate with gizmos, add/duplicate/delete nodes, undo with ⌘Z,
 and export the world back to JSON.
